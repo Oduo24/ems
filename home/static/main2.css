@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+    background-color: #fff;
+    }
+
+    a{
+        color: #b1b4bd;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    a:hover{
+        color: #09aa23;
+        text-decoration: none;
+        transition: 500ms;
+    }
+
+    .navbar{
+        background-color: rgba(5, 0, 8);
+        min-height: 80px;
+        overflow: hidden;
+        width: 100%;
+
+    }
+
+   .nav-link{
+       color: #ffffff;
+       
+   }
+
+   .navbar-toggler{
+     border: none;
+     padding: 10px 6px;
+     outline: none;
+
+   }
+
+   .navbar-toggler span{
+     display: block;
+     width: 22px;
+     height: 2px;
+     border: 1px;
+     background: #ffffff ;
+   }
+
+   .navbar-toggler span + span{
+    margin-top: 4px;
+    width: 22px;
+  }
+
+  .navbar-toggler span + span + span{
+    width: 22px;
+  }
+
+
+    .paragraph{
+        font-size: 1.1rem;
+        line-height: 1.4;
+        text-align: justify;
+    }
+
+    footer{
+      background-color: #000000;
+      width: 100%;
+    }
+
+
+
+
+    .serviceBox{
+        color: #036c78;
+        font-family: 'Zen Maru Gothic', sans-serif;
+        text-align: center;
+        padding: 30px 25px 40px;
+        border-radius: 0 80px;
+        border: 2px dashed #036c78;
+        position: relative;
+        z-index: 1;
+    }
+    .serviceBox:before{
+        content: "";
+        background: #f4f4f4;
+        border-radius: 0 70px;
+        box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.3);
+        transform: translateX(-50%) translateY(-50%);
+        position: absolute;
+        width: calc(100% - 15px);
+        height: calc(100% - 15px);
+        top: 50%;
+        left: 50%;
+        z-index: -1;
+    }
+    .serviceBox:after{
+        content: "";
+        background:#036c78;
+        width: 130px;
+        height: 70px;
+        position: absolute;
+        top: -9px;
+        left: -9px;
+        z-index: -2;
+    }
+    .serviceBox .service-icon{
+        font-size: 45px;
+        margin: 0 auto 15px;
+    }
+    .serviceBox .title{
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 0 0 12px;
+        text-decoration: none;
+    }
+    .serviceBox .description{
+        color: #444;
+        font-size: 15px;
+        line-height: 22px;
+    }
+    .serviceBox.yellow{
+        color: #d38a0c;
+        border-color: #d38a0c;
+    }
+    .serviceBox.yellow:after{
+        background-color: #d38a0c;
+        height: 130px;
+        width: 100px;
+        border-radius: 0 0 0 80px;
+        top: auto;
+        bottom: -9px;
+    }
+    .serviceBox.purple{
+        color: #8455D0;
+        border-color: #8455D0;
+    }
+    .serviceBox.purple:after{
+        background-color: #8455D0;
+        top: auto;
+        bottom: -9px;
+        left: auto;
+        right: -9px;
+    }
+    .serviceBox.red{
+        color: #CD4B4C;
+        border-color: #CD4B4C;
+    }
+    .serviceBox.red:after{
+        background-color: #CD4B4C;
+        width: 100px;
+        height: 130px;
+        border-radius: 0 85px 0 0;
+        left: auto;
+        right: -9px;
+    }
+    @media only screen and (max-width: 990px){
+        .serviceBox{ margin: 0 10px 30px; }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
