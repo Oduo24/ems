@@ -86,15 +86,15 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'ems_db',
+        'NAME': 'daqhkjfbmdeufk',
 
-        'USER': 'postgres',
+        'USER': 'rkivysruydbdsy',
 
-        'PASSWORD': 'ruphinee',
+        'PASSWORD': '36364df4141bea291bac73dc75a3179921ed2370537184e19da015661f1df9e6',
 
-        'HOST': 'localhost',
+        'HOST': 'ec2-34-230-110-100.compute-1.amazonaws.com',
 
-        'PORT': ''
+        'PORT': '5432'
 
 
     }

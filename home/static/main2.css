@@ -26,10 +26,11 @@ body {
     }
 
     .navbar{
-        background-color: rgba(5, 0, 8);
+        background-color: #5c6e8a;
         min-height: 80px;
         overflow: hidden;
         width: 100%;
+
 
     }
 
@@ -70,9 +71,10 @@ body {
     }
 
     footer{
-      background-color: #000000;
+      background-color: #5c6e8a;
       width: 100%;
     }
+
 
 
 
