@@ -1,0 +1,93 @@
+{% extends './common.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+{% block content %}
+<div class="container mt-3 text-white">
+    <table class="table table-dark table-striped">
+        <h3 class="caption-top text-dark text-center">Pumps</h3>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Hours used</th>
+            <th>consumption (kWh)</th>
+            <th>Cost (Ksh)</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for data in pump %}
+            <td>{{data.id}}</td>
+            <td>{{data.date}}</td>
+            <td>{{data.hours_used}}</td>
+            <td>{{data.consumption}}</td>
+            <td>{{data.daily_cost}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Totals</td>
+            <td></td>
+            <td></td>
+            <td>{{total_pump_c}}</td>
+            <td>{{pump_total_cost}}</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+
+<div class="container mt-3 text-white">
+    <table class="table table-dark table-striped">
+        <h3 class="caption-top text-dark text-center">Lights</h3>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Hours used</th>
+            <th>consumption (kWh)</th>
+            <th>Cost (Ksh)</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for data in light %}
+            <td>{{data.id}}</td>
+            <td>{{data.date}}</td>
+            <td>{{data.hours_used}}</td>
+            <td>{{data.consumption}}</td>
+            <td>{{data.daily_cost}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Totals</td>
+            <td></td>
+            <td></td>
+            <td>{{total_light_c}}</td>
+            <td>{{lights_total_cost}}</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+{% endblock %}
+
+
+</body>
+</html>

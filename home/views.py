@@ -32,23 +32,24 @@ def CostcalView(request):
         val_2 = request.POST['quantity']
         val_3 = request.POST['rating']
         val_4 = request.POST['hours_used']
+        val_5 = request.POST['date']
 
         if val_1 == 'Pumps':
             cost = float(val_4) * float(val_3) * price * float(val_2)
             cons = float(val_4) * float(val_3) * float(val_2)
-            ins = Pumps(hours_used=val_4, daily_cost=cost, consumption=cons)
+            ins = Pumps(date=val_5, hours_used=val_4, daily_cost=cost, consumption=cons)
             ins.save()
 
         elif val_1 == 'Lights':
             cost = float(val_4) * float(val_3) * price * float(val_2)
             cons = float(val_4) * float(val_3) * float(val_2)
-            ins = Lights(hours_used=val_4, daily_cost=cost, consumption=cons)
+            ins = Lights(date=val_5, hours_used=val_4, daily_cost=cost, consumption=cons)
             ins.save()
 
         elif val_1 == 'Flow Meter':
             cost = float(val_4) * float(val_3) * price * float(val_2)
             cons = float(val_4) * float(val_3) * float(val_2)
-            ins = FlowMeter(hours_used=val_4, daily_cost=cost, consumption=cons)
+            ins = FlowMeter(date=val_5, hours_used=val_4, daily_cost=cost, consumption=cons)
             ins.save()
 
 
@@ -65,5 +66,59 @@ def CostcalView(request):
     return render(request, 'home/costcal.html', {'form': form})
 
 
+class LightConsumption(TemplateView):
+    template_name = 'light.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-02').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class PumpConsumption(TemplateView):
+    template_name = 'pump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-02').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+def Ebc(request):
+    pump = Pumps.objects.all()
+    light = Lights.objects.all()
+
+    total_pump_c = Pumps.objects.values_list('consumption', flat=True).aggregate(sum=Sum('consumption'))['sum']
+    total_light_c = Lights.objects.values_list('consumption', flat=True).aggregate(sum=Sum('consumption'))['sum']
+
+    pump_total_cost = Pumps.objects.values_list('daily_cost', flat=True).aggregate(sum=Sum('daily_cost'))['sum']
+    lights_total_cost = Lights.objects.values_list('daily_cost', flat=True).aggregate(sum=Sum('daily_cost'))['sum']
+
+    return render(request, 'home/ebc.html', {'pump': pump,
+                                             'light': light,
+                                             'total_pump_c': total_pump_c,
+                                             'total_light_c': total_light_c,
+                                             'pump_total_cost': pump_total_cost,
+                                             'lights_total_cost': lights_total_cost,
+                                             })
 
 

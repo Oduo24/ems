@@ -31,10 +31,13 @@
                             {% csrf_token %}
                             <h3 class="title">Utility Entry</h3>
                             <div class="form-group">
+                                <span class="input-icon"><i class="fa fa-check"></i></span>
+                                <input class="form-control" type="date" placeholder="Date" name="date" required>
+                            </div>
+                            <div class="form-group">
                                 <select class="form-control pb-1" name="equipment_name" >
                                     <option>Pumps</option>
                                     <option>Lights</option>
-                                    <option>Flow Meter</option>
                                 </select>
                             </div>
                             <div class="form-group">
