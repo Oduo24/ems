@@ -1,0 +1,70 @@
+{% extends './common.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+{% block content %}
+<div>
+    <div class="pt-3 text-center">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Month
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{% url 'JanLightConsumption' %}">January</a></li>
+                <li><a class="dropdown-item" href="{% url 'FebLightConsumption' %}">February</a></li>
+                <li><a class="dropdown-item" href="{% url 'MarchLightConsumption' %}">March</a></li>
+                <li><a class="dropdown-item" href="{% url 'AprilLightConsumption' %}">April</a></li>
+                <li><a class="dropdown-item" href="{% url 'MayLightConsumption' %}">May</a></li>
+                <li><a class="dropdown-item" href="{% url 'JuneLightConsumption' %}">June</a></li>
+                <li><a class="dropdown-item" href="{% url 'JulyLightConsumption' %}">July</a></li>
+                <li><a class="dropdown-item" href="{% url 'AugLightConsumption' %}">August</a></li>
+                <li><a class="dropdown-item" href="{% url 'SepLightConsumption' %}">September</a></li>
+                <li><a class="dropdown-item" href="{% url 'OctLightConsumption' %}">October</a></li>
+                <li><a class="dropdown-item" href="{% url 'NovLightConsumption' %}">November</a></li>
+                <li><a class="dropdown-item" href="{% url 'DecLightConsumption' %}">December</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="px-5 pt-5 text-dark">
+        <h5>January Lights Consumption:</h5>
+    </div>
+
+    <div class="px-5 pt-3 text-dark text-center">
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="{% url 'JanPumpConsumption' %}" tabindex="-1" aria-disabled="true">Pumps</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    {% if graph %}
+
+    {{ graph|safe }}
+
+    {% endif %}
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+</body>
+</html>

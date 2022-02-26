@@ -66,8 +66,45 @@ def CostcalView(request):
     return render(request, 'home/costcal.html', {'form': form})
 
 
-class LightConsumption(TemplateView):
-    template_name = 'light.html'
+class JanLightConsumption(TemplateView):
+    template_name = 'janlight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-01').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class JanPumpConsumption(TemplateView):
+    template_name = 'janpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-01').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class FebLightConsumption(TemplateView):
+    template_name = 'feblight.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,13 +122,383 @@ class LightConsumption(TemplateView):
         return context
 
 
-class PumpConsumption(TemplateView):
-    template_name = 'pump.html'
+class FebPumpConsumption(TemplateView):
+    template_name = 'febpump.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Pumps.objects.filter(date__istartswith='2022-02').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class MarchLightConsumption(TemplateView):
+    template_name = 'Marchlight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-03').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class MarchPumpConsumption(TemplateView):
+    template_name = 'Marchpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-03').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class AprilLightConsumption(TemplateView):
+    template_name = 'aprillight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-04').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class AprilPumpConsumption(TemplateView):
+    template_name = 'aprilpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-04').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class MayLightConsumption(TemplateView):
+    template_name = 'maylight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-05').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class MayPumpConsumption(TemplateView):
+    template_name = 'maypump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-05').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class JuneLightConsumption(TemplateView):
+    template_name = 'junelight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-06').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class JunePumpConsumption(TemplateView):
+    template_name = 'junepump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-06').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class JulyLightConsumption(TemplateView):
+    template_name = 'julylight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-07').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class JulyPumpConsumption(TemplateView):
+    template_name = 'julypump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-07').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class AugLightConsumption(TemplateView):
+    template_name = 'auglight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-08').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class AugPumpConsumption(TemplateView):
+    template_name = 'augpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-08').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class SepLightConsumption(TemplateView):
+    template_name = 'seplight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-09').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class SepPumpConsumption(TemplateView):
+    template_name = 'seppump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-09').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class OctLightConsumption(TemplateView):
+    template_name = 'octlight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-10').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class OctPumpConsumption(TemplateView):
+    template_name = 'octpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-10').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class NovLightConsumption(TemplateView):
+    template_name = 'novlight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-11').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class NovPumpConsumption(TemplateView):
+    template_name = 'novpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-11').values_list('consumption', flat=True)
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class DecLightConsumption(TemplateView):
+    template_name = 'declight.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Lights.objects.filter(date__istartswith='2022-12').values_list('consumption', flat=True)
+
+
+        fig = px.bar(x=x, y=y,
+                     labels={
+                         "x": "February",
+                         "y": "Consumption (kWh)",
+                     })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
+
+
+class DecPumpConsumption(TemplateView):
+    template_name = 'decpump.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = ['Week1', 'Week2', 'Week3', 'Week4']
+        y = Pumps.objects.filter(date__istartswith='2022-12').values_list('consumption', flat=True)
 
         fig = px.bar(x=x, y=y,
                      labels={
@@ -122,3 +529,5 @@ def Ebc(request):
                                              })
 
 
+def SavingTips(request):
+    pass
