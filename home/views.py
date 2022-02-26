@@ -529,5 +529,5 @@ def Ebc(request):
                                              })
 
 
-def SavingTips(request):
-    pass
+def EnergySavingTips(request):
+    return render(request, 'home/savingtips.html')

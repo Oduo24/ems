@@ -46,6 +46,7 @@ urlpatterns = [
 
 
     path('index/ebc/000c', views.Ebc, name='ebc'),
+    path('index/est/0000', views.EnergySavingTips, name='EnergySavingTips'),
 
 
 
