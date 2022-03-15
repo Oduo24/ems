@@ -1,7 +1,7 @@
 
 from django.urls import path
 from . import views
-from .views import IndexView, CostcalView, Ebc, JanLightConsumption, JanPumpConsumption, FebLightConsumption, FebPumpConsumption, MarchLightConsumption, MarchPumpConsumption, AprilLightConsumption, AprilPumpConsumption, MayLightConsumption, MayPumpConsumption, JuneLightConsumption, JunePumpConsumption, JulyLightConsumption, JulyPumpConsumption, AugLightConsumption, AugPumpConsumption, SepLightConsumption, SepPumpConsumption, OctLightConsumption, OctPumpConsumption, NovLightConsumption, NovPumpConsumption, DecLightConsumption, DecPumpConsumption
+from .views import IndexView, CostcalView, Ebc, JanLightConsumption, JanPumpConsumption, FebLightConsumption, FebPumpConsumption, MarchLightConsumption, MarchPumpConsumption, AprilLightConsumption, AprilPumpConsumption, MayLightConsumption, MayPumpConsumption, JuneLightConsumption, JunePumpConsumption, JulyLightConsumption, JulyPumpConsumption, AugLightConsumption, AugPumpConsumption, SepLightConsumption, SepPumpConsumption, OctLightConsumption, OctPumpConsumption, NovLightConsumption, NovPumpConsumption, DecLightConsumption, DecPumpConsumption, FlowMeterGraph
 
 
 urlpatterns = [
@@ -47,6 +47,11 @@ urlpatterns = [
 
     path('index/ebc/000c', views.Ebc, name='ebc'),
     path('index/est/0000', views.EnergySavingTips, name='EnergySavingTips'),
+
+    path('index/flme/9998cd', views.FlowMeterEntry, name='FlowMeter'),
+    path('index/flm_processor/ret', views.FlowMeterProcessor, name='FlowMeterProcessor'),
+
+    path('index/fmgg/090899', FlowMeterGraph.as_view(), name='FlowMeterGraph'),
 
 
 

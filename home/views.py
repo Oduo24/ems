@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.core.mail import BadHeaderError, send_mail
 from django.conf import settings
-from .forms import UtilityForm
+from .forms import UtilityForm, FlowMeterForm
 from .models import Pumps, Lights, FlowMeter
 from django.contrib import messages
 
@@ -25,7 +25,7 @@ def IndexView(request):
 def CostcalView(request):
     # if this is a POST request process the form data
     global form
-    price = 10.00
+    price = 15.60
     form = UtilityForm()
     if request.method == 'POST':
         val_1 = request.POST['equipment_name']
@@ -74,10 +74,9 @@ class JanLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-01').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "January",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -95,7 +94,7 @@ class JanPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "January",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -110,7 +109,6 @@ class FebLightConsumption(TemplateView):
         context = super().get_context_data(**kwargs)
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-02').values_list('consumption', flat=True)
-
 
         fig = px.bar(x=x, y=y,
                      labels={
@@ -148,10 +146,9 @@ class MarchLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-03').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "March",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -169,7 +166,7 @@ class MarchPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "March",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -185,10 +182,9 @@ class AprilLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-04').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "April",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -206,7 +202,7 @@ class AprilPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "April",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -222,10 +218,9 @@ class MayLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-05').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "May",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -243,7 +238,7 @@ class MayPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "May",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -259,10 +254,9 @@ class JuneLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-06').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "June",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -280,7 +274,7 @@ class JunePumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "June",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -296,10 +290,9 @@ class JulyLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-07').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "July",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -317,7 +310,7 @@ class JulyPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "July",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -333,10 +326,9 @@ class AugLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-08').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "August",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -354,7 +346,7 @@ class AugPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "August",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -370,10 +362,9 @@ class SepLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-09').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "September",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -391,7 +382,7 @@ class SepPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "September",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -407,10 +398,9 @@ class OctLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-10').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "October",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -428,7 +418,7 @@ class OctPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "October",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -444,10 +434,9 @@ class NovLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-11').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "November",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -465,7 +454,7 @@ class NovPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "November",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -481,10 +470,9 @@ class DecLightConsumption(TemplateView):
         x = ['Week1', 'Week2', 'Week3', 'Week4']
         y = Lights.objects.filter(date__istartswith='2022-12').values_list('consumption', flat=True)
 
-
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "December",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -502,7 +490,7 @@ class DecPumpConsumption(TemplateView):
 
         fig = px.bar(x=x, y=y,
                      labels={
-                         "x": "February",
+                         "x": "December",
                          "y": "Consumption (kWh)",
                      })
         div = plot(fig, auto_open=False, output_type='div')
@@ -513,9 +501,12 @@ class DecPumpConsumption(TemplateView):
 def Ebc(request):
     pump = Pumps.objects.all()
     light = Lights.objects.all()
+    flow_meter = FlowMeter.objects.all()
 
     total_pump_c = Pumps.objects.values_list('consumption', flat=True).aggregate(sum=Sum('consumption'))['sum']
     total_light_c = Lights.objects.values_list('consumption', flat=True).aggregate(sum=Sum('consumption'))['sum']
+    total_flow_meter = \
+    FlowMeter.objects.values_list('average_reading', flat=True).aggregate(sum=Sum('average_reading'))['sum']
 
     pump_total_cost = Pumps.objects.values_list('daily_cost', flat=True).aggregate(sum=Sum('daily_cost'))['sum']
     lights_total_cost = Lights.objects.values_list('daily_cost', flat=True).aggregate(sum=Sum('daily_cost'))['sum']
@@ -526,8 +517,57 @@ def Ebc(request):
                                              'total_light_c': total_light_c,
                                              'pump_total_cost': pump_total_cost,
                                              'lights_total_cost': lights_total_cost,
+                                             'flow_meter': flow_meter,
+                                             'total_flow_meter': total_flow_meter,
                                              })
 
 
 def EnergySavingTips(request):
     return render(request, 'home/savingtips.html')
+
+
+def FlowMeterEntry(request):
+    return render(request, 'home/flow_meter_entry.html')
+
+
+def FlowMeterProcessor(request):
+    global form
+    form = FlowMeterForm()
+    if request.method == 'POST':
+        val_1 = request.POST['date']
+        val_2 = request.POST['reading1']
+        val_3 = request.POST['reading2']
+
+        val_2_db = float(val_2)
+        val_3_db = float(val_3)
+
+        avg = (val_2_db + val_3_db) / 2
+        ins = FlowMeter(date=val_1, reading1=val_2, reading2=val_3, average_reading=avg)
+        ins.save()
+
+        # redirect to a new URL:
+        # return HttpResponse('thanks')
+        messages.success(request, 'Successfully added...')
+
+    # if a GET (or any other method) create a blank form
+    else:
+        form = FlowMeterForm()
+    return render(request, 'home/flow_meter_entry.html', {'form': form})
+
+
+class FlowMeterGraph(TemplateView):
+    template_name = 'flow_meter_graph.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        x = FlowMeter.objects.values_list('date', flat=True)
+        y = FlowMeter.objects.values_list('average_reading', flat=True)
+
+        fig = px.scatter(x=x, y=y,
+                      labels={
+                          "x": "date",
+                          "y": "Average Flow Meter Reading",
+                      })
+        div = plot(fig, auto_open=False, output_type='div')
+        context['graph'] = div
+        return context
