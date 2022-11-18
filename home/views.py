@@ -68,7 +68,7 @@ def CostcalView(request):
 
 def MeterReading(request):
     if request.method == 'POST':
-        return render(request, 'home/meter_reading_success')
+        return render(request, 'home/meter_reading_success.html')
     else:
         return render(request, 'home/meterreading.html')
 
