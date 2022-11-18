@@ -67,7 +67,10 @@ def CostcalView(request):
 
 
 def MeterReading(request):
-    return render(request, 'home/meterreading.html')
+    if request.method == 'POST':
+        return render(request, 'home/meter_reading_success')
+    else:
+        return render(request, 'home/meterreading.html')
 
 
 class JanLightConsumption(TemplateView):
