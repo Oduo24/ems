@@ -66,6 +66,10 @@ def CostcalView(request):
     return render(request, 'home/costcal.html', {'form': form})
 
 
+def MeterReading(request):
+    return render(request, 'home/meterreading.html')
+
+
 class JanLightConsumption(TemplateView):
     template_name = 'janlight.html'
 
