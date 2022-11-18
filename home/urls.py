@@ -1,13 +1,15 @@
 
 from django.urls import path
 from . import views
-from .views import IndexView, CostcalView, Ebc, JanLightConsumption, JanPumpConsumption, FebLightConsumption, FebPumpConsumption, MarchLightConsumption, MarchPumpConsumption, AprilLightConsumption, AprilPumpConsumption, MayLightConsumption, MayPumpConsumption, JuneLightConsumption, JunePumpConsumption, JulyLightConsumption, JulyPumpConsumption, AugLightConsumption, AugPumpConsumption, SepLightConsumption, SepPumpConsumption, OctLightConsumption, OctPumpConsumption, NovLightConsumption, NovPumpConsumption, DecLightConsumption, DecPumpConsumption, FlowMeterGraph
+from .views import IndexView, CostcalView, Ebc, JanLightConsumption, JanPumpConsumption, FebLightConsumption, FebPumpConsumption, MarchLightConsumption, MarchPumpConsumption, AprilLightConsumption, AprilPumpConsumption, MayLightConsumption, MayPumpConsumption, JuneLightConsumption, JunePumpConsumption, JulyLightConsumption, JulyPumpConsumption, AugLightConsumption, AugPumpConsumption, SepLightConsumption, SepPumpConsumption, OctLightConsumption, OctPumpConsumption, NovLightConsumption, NovPumpConsumption, DecLightConsumption, DecPumpConsumption, FlowMeterGraph, MeterReading
 
 
 urlpatterns = [
     path('', views.IndexView, name='index'),
     path('index/', views.IndexView, name='index'),
     path('index/utility/entry', views.CostcalView, name="costcal"),
+    path('index/meterreading/entry', views.MeterReading, name="MeterReading"),
+    
     path('index/analytics/01L', JanLightConsumption.as_view(), name='JanLightConsumption'),
     path('index/analytics/01P', JanPumpConsumption.as_view(), name='JanPumpConsumption'),
 
